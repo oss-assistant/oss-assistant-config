@@ -1,0 +1,516 @@
+{
+  "schemaVersion": 1,
+  "revision": "dev-current",
+  "devices": [
+    {
+      "deviceId": "stb_zxv_b700v5",
+      "categoryId": "android_iptv",
+      "displayName": "STB ZXV B700v5",
+      "materialId": "114225",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/STB_ZXV_B700v5-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/android_iptv-zte-zxv10-b700v5-iptv.webp",
+      "warningText": "",
+      "validationProfileId": "android_zxv_b700v5_12_digits",
+      "enabled": true
+    },
+    {
+      "deviceId": "stb_sdmc_dv9161_androidtv",
+      "categoryId": "android_iptv",
+      "displayName": "DV9161 (AndroidTV)",
+      "materialId": "121679",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/STB_SDMC_DV9161__AndroidTV_-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/android_iptv-a1-sdmc-dv9161.webp",
+      "warningText": "",
+      "validationProfileId": "android_dv9161_16_digits",
+      "enabled": true
+    },
+    {
+      "deviceId": "stb_zte_b866v2f02_androidtv",
+      "categoryId": "android_iptv",
+      "displayName": "B866V2F02 (AndroidTV)",
+      "materialId": "121678",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/STB_ZTE_B866V2F02__AndroidTV_-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/android_iptv-zte-zxv10-b866v2f02-richmedia-box.webp",
+      "warningText": "",
+      "validationProfileId": "android_b866v2f02_bg_plus_15_digits",
+      "enabled": true
+    },
+    {
+      "deviceId": "kaon_kstb5019_xploretv",
+      "categoryId": "xplore_zapper",
+      "displayName": "KSTB5019 XploreTV",
+      "materialId": "118542",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Kaon_KSTB5019_XploreTV_IP_only__BCM7268_-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "xplore_zapper_mac12_hex_plain",
+      "enabled": true
+    },
+    {
+      "deviceId": "kaon_kstb6106_zapper",
+      "categoryId": "xplore_zapper",
+      "displayName": "KSTB6106 Zapper",
+      "materialId": "118543",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Kaon_KSTB6106_DVB-C_Zapper-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/KSTB6106 Zapper.webp",
+      "warningText": "",
+      "validationProfileId": "xplore_zapper_mac12_hex_plain",
+      "enabled": true
+    },
+    {
+      "deviceId": "kaon_kstb5020_xploretv",
+      "categoryId": "xplore_zapper",
+      "displayName": "KSTB5020 XploreTV",
+      "materialId": "118544",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Kaon_KSTB5020_XploreTV.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "xplore_zapper_mac12_hex_plain",
+      "enabled": true
+    },
+    {
+      "deviceId": "dth_kaon_kstb1001",
+      "categoryId": "dth_kaon_nagra",
+      "displayName": "DTH STB KAON KSTB1001",
+      "materialId": "114915",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/DTH_STB_KAON_KSTB1001-BCM73625-1GB-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "dth_11_digits_prefix_00",
+      "enabled": true
+    },
+    {
+      "deviceId": "dth_nagra_dts3460",
+      "categoryId": "dth_kaon_nagra",
+      "displayName": "DTH Nagra DTS3460",
+      "materialId": "121961",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/DTH_Nagra_DTS3460.webp",
+      "helpImagePath": "images/recycle-help/DTH Nagra DTS3460.webp",
+      "warningText": "",
+      "validationProfileId": "dth_11_digits_prefix_00",
+      "enabled": true
+    },
+    {
+      "deviceId": "adb_modem_2220",
+      "categoryId": "austrian",
+      "displayName": "ADB Modem 2220",
+      "materialId": "1200017460",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Modem_ADB_VoIP_VV_2220_AT-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/ADB modem vv2220.webp",
+      "warningText": "",
+      "validationProfileId": "austrian_adb_vv2220",
+      "enabled": true
+    },
+    {
+      "deviceId": "huawei_ha35_22_hibrid",
+      "categoryId": "austrian",
+      "displayName": "Huawei HA35-22 HYBRID",
+      "materialId": "1200017462",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Huawei_HA35-22AM.webp",
+      "helpImagePath": "images/recycle-help/Huawei HA35-22 HIBRID.webp",
+      "warningText": "",
+      "validationProfileId": "austrian_huawei_ha35_22_hibrid",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_g5b1",
+      "categoryId": "netbox",
+      "displayName": "ZTE G5B",
+      "materialId": "124173",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_G5B1_5G-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_mf296r",
+      "categoryId": "netbox",
+      "displayName": "ZTE MF296R",
+      "materialId": "123451",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_MF296R-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_mc888a",
+      "categoryId": "netbox",
+      "displayName": "ZTE MC888A",
+      "materialId": "121561",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_MC888A_5G-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_mf293n",
+      "categoryId": "netbox",
+      "displayName": "ZTE MF293N",
+      "materialId": "119442",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_MF293N_+_ext._Antenna-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "cube_zte_801a",
+      "categoryId": "netbox",
+      "displayName": "Cube ZTE 801A",
+      "materialId": "118857",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Cube_ZTE_MC_801A_5G-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_mf283u",
+      "categoryId": "netbox",
+      "displayName": "ZTE MF283U",
+      "materialId": "118831",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_MF283U+ext._Antenna-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "huawei_b311_black",
+      "categoryId": "netbox",
+      "displayName": "Huawei B311 Black",
+      "materialId": "116081",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Huawei_B311-221_black_+ext._Antenna-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "huawei_b311_white",
+      "categoryId": "netbox",
+      "displayName": "Huawei B311 White",
+      "materialId": "115763",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Huawei_B311-221_white+ext._Antenna-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "huawei_b310s",
+      "categoryId": "netbox",
+      "displayName": "Huawei B310s",
+      "materialId": "111732",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Huawei b310 black.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_g5ts",
+      "categoryId": "netbox",
+      "displayName": "ZTE G5TS",
+      "materialId": "1000057334",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_G5TS_5G-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "tp_link_nx520",
+      "categoryId": "netbox",
+      "displayName": "TP-Link NX520",
+      "materialId": "1000059633",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/TP-Link_NX520_5G-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "tp_link_nx220v",
+      "categoryId": "netbox",
+      "displayName": "TP Link NX220v",
+      "materialId": "1000055165",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/TP_Link_NX220v_5G-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "imei15_luhn",
+      "enabled": true
+    },
+    {
+      "deviceId": "tp_link_hx520_home",
+      "categoryId": "routers",
+      "displayName": "HX520 Home",
+      "materialId": "1200014914",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Router_TP_Link_HX520_Home_WiFi-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/HX520 Home.webp",
+      "warningText": "",
+      "validationProfileId": "router_13_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "tp_link_deco_m4",
+      "categoryId": "routers",
+      "displayName": "Deco M4 AC1200",
+      "materialId": "118551",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/TP-LINK_Deco_M4__AC1200__2xGbE__MU-MIMO-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/Deco M4, AC1200, 2xGbE, MU-MIMO.webp",
+      "warningText": "",
+      "validationProfileId": "router_13_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "tp_link_archer_a6",
+      "categoryId": "routers",
+      "displayName": "Archer A6/AC1200/DB LVA",
+      "materialId": "118552",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Router_TP-Link_Archer_A6AC1200DB_LVA-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "category_routers_current",
+      "enabled": true
+    },
+    {
+      "deviceId": "tp_link_ex220",
+      "categoryId": "routers",
+      "displayName": "TP-Link EX220",
+      "materialId": "121150",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Router_TP-Link_EX220-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/TP-Link EX220.webp",
+      "warningText": "",
+      "validationProfileId": "router_13_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "tp_link_ex220_home",
+      "categoryId": "routers",
+      "displayName": "TP-Link EX220 Home",
+      "materialId": "121376",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Router_TP-Link_EX220-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/TP-Link EX220 Home.webp",
+      "warningText": "",
+      "validationProfileId": "router_13_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_zxhn_h3601p",
+      "categoryId": "routers",
+      "displayName": "ZTE ZXHN H3601P",
+      "materialId": "123357",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Router_ZTE_ZXHN_H3601P_RG_WiFi-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/ZTE ZXHN H3601P.webp",
+      "warningText": "",
+      "validationProfileId": "router_zte_h3601p_zte_prefix_15_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "huawei_k562e_10_home",
+      "categoryId": "gpon",
+      "displayName": "K562E-10 Home",
+      "materialId": "1200014928",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Router_Huawei_K562E-10_Home_WiFi-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "category_gpon_current",
+      "enabled": true
+    },
+    {
+      "deviceId": "huawei_gpon_hg8145v5",
+      "categoryId": "gpon",
+      "displayName": "Huawei GPON HG8145V5",
+      "materialId": "118560",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/Huawei_GPON_HG8145V5-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/Huawei GPON HG8145V5.webp",
+      "warningText": "",
+      "validationProfileId": "gpon_16_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_gpon_zxhn_f670v",
+      "categoryId": "gpon",
+      "displayName": "GPON CPE ZXHN F670V",
+      "materialId": "118563",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/GPON_CPE_ZXHN_F670L_V1.1-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/GPON CPE ZXHN F670V.webp",
+      "warningText": "",
+      "validationProfileId": "gpon_16_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_zxhn_f600",
+      "categoryId": "gpon",
+      "displayName": "ZTE ZXHN F600",
+      "materialId": "118564",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_ZXHN_F600.webp",
+      "helpImagePath": "images/recycle-help/ZTE ZXHN F600.webp",
+      "warningText": "",
+      "validationProfileId": "gpon_16_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_gpon_zxhn_f6600p",
+      "categoryId": "gpon",
+      "displayName": "GPON CPE ZXHN F6600P",
+      "materialId": "122933",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/GPON_CPE_ZXHN_F6600P_V9.0-removebg-preview.webp",
+      "helpImagePath": "images/recycle-help/GPON CPE ZXHN F6600P.webp",
+      "warningText": "",
+      "validationProfileId": "gpon_16_alnum",
+      "enabled": true
+    },
+    {
+      "deviceId": "zte_gpon_zxhn_f6600r",
+      "categoryId": "gpon",
+      "displayName": "GPON ONT ZXHN F6600R",
+      "materialId": "122944",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/ZTE_ONT_ZXHN_F6600R-removebg-preview.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "category_gpon_current",
+      "enabled": true
+    }
+  ],
+  "categoryHelp": {
+    "android_iptv": [
+      {
+        "title": "B866V2F02 (AndroidTV)",
+        "imagePath": "images/recycle-help/android_iptv-zte-zxv10-b866v2f02-richmedia-box.webp",
+        "alt": "Правилен barcode за ZTE ZXV10 B866V2F02 / RichMedia Box"
+      },
+      {
+        "title": "DV9161 (AndroidTV)",
+        "imagePath": "images/recycle-help/android_iptv-a1-sdmc-dv9161.webp",
+        "alt": "Правилен barcode за A1 / SDMC DV9161"
+      },
+      {
+        "title": "STB ZXV B700v5",
+        "imagePath": "images/recycle-help/android_iptv-zte-zxv10-b700v5-iptv.webp",
+        "alt": "Правилен barcode за ZTE ZXV10 B700V5 IPTV"
+      }
+    ],
+    "modems": [
+      {
+        "title": "Modem Technivolor v1",
+        "imagePath": "images/recycle-help/Modem Technivolor v1.webp",
+        "alt": "РџСЂР°РІРёР»РµРЅ barcode Р·Р° Modem Technivolor v1"
+      },
+      {
+        "title": "Modem Technivolor v2",
+        "imagePath": "images/recycle-help/Modem Technivolor v2.webp",
+        "alt": "РџСЂР°РІРёР»РµРЅ barcode Р·Р° Modem Technivolor v2"
+      }
+    ]
+  },
+  "validationProfiles": [
+    "android_b866v2f02_bg_plus_15_digits",
+    "android_dv9161_16_digits",
+    "android_zxv_b700v5_12_digits",
+    "austrian_adb_vv2220",
+    "austrian_huawei_ha35_22_hibrid",
+    "category_android_iptv_current",
+    "category_austrian_min16_alnum",
+    "category_cam_modules_non_empty",
+    "category_dth_kaon_nagra_11_digits",
+    "category_gpon_current",
+    "category_modems_current",
+    "category_routers_current",
+    "category_xplore_zapper_mac12",
+    "dth_11_digits_prefix_00",
+    "gpon_16_alnum",
+    "imei15_luhn",
+    "router_13_alnum",
+    "router_zte_h3601p_zte_prefix_15_alnum",
+    "xplore_zapper_mac12_hex_plain"
+  ],
+  "generatedMaterialFilters": {
+    "android_iptv": [
+      "114225",
+      "121679",
+      "121678"
+    ],
+    "xplore_zapper": [
+      "118542",
+      "118543",
+      "118544"
+    ],
+    "dth_kaon_nagra": [
+      "114915",
+      "121961"
+    ],
+    "austrian": [
+      "1200017460",
+      "1200017462"
+    ],
+    "netbox": [
+      "124173",
+      "123451",
+      "121561",
+      "119442",
+      "118857",
+      "118831",
+      "116081",
+      "115763",
+      "111732",
+      "1000057334",
+      "1000059633",
+      "1000055165"
+    ],
+    "routers": [
+      "1200014914",
+      "118551",
+      "118552",
+      "121150",
+      "121376",
+      "123357"
+    ],
+    "gpon": [
+      "1200014928",
+      "118560",
+      "118563",
+      "118564",
+      "122933",
+      "122944"
+    ]
+  }
+}

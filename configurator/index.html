@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recycle Configurator Skeleton</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <p class="eyebrow">Dev-only local tool</p>
+        <h1>Recycle Configurator Skeleton</h1>
+        <p>
+          Този dev-only skeleton преглежда fixture-а и редактира metadata за съществуващи устройства само в browser memory.
+          Не е свързан с extension runtime и не може да save-ва config.
+        </p>
+        <p class="notice">
+          Промените са само в browser-memory. Те не се записват в project files, освен ако не export-неш и validate-неш отделен candidate JSON.
+        </p>
+
+        <dl class="status-grid" aria-label="Current skeleton status">
+          <div>
+            <dt>Runtime source</dt>
+            <dd>Extension/content.js</dd>
+          </div>
+          <div>
+            <dt>Fixture status</dt>
+            <dd id="fixture-status">Loading fixture...</dd>
+          </div>
+          <div>
+            <dt>Write endpoints</dt>
+            <dd>None</dd>
+          </div>
+          <div>
+            <dt>Edit state</dt>
+            <dd id="edit-status">Clean</dd>
+          </div>
+          <div>
+            <dt>Validation target</dt>
+            <dd>validate-recycle-config-fixture.js --input</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="panel panel-spaced" aria-labelledby="validation-heading">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Dev-only validation</p>
+            <h2 id="validation-heading">Current Fixture Validation</h2>
+          </div>
+          <div class="button-row">
+            <label class="file-button">
+              Import Candidate JSON
+              <input id="import-candidate-input" type="file" accept=".json,application/json">
+            </label>
+            <button id="export-candidate-btn" type="button" disabled>Export Candidate JSON</button>
+            <button id="validate-candidate-btn" type="button" disabled>Validate Candidate</button>
+            <button id="validate-fixture-btn" type="button">Validate Fixture</button>
+            <button id="reload-fixture-btn" type="button">Reload fixture</button>
+          </div>
+        </div>
+
+        <p class="source-path" id="import-status">Import status: No candidate imported.</p>
+
+        <dl class="summary-grid validation-grid" aria-label="Fixture validation summary">
+          <div>
+            <dt>Candidate export</dt>
+            <dd id="export-status">Waiting for fixture</dd>
+          </div>
+          <div>
+            <dt>Candidate validation</dt>
+            <dd id="candidate-validation-status" class="result-badge result-neutral">Not run</dd>
+          </div>
+          <div>
+            <dt>Last target</dt>
+            <dd id="validation-target">-</dd>
+          </div>
+          <div>
+            <dt>Result</dt>
+            <dd id="validation-status" class="result-badge result-neutral">Not run</dd>
+          </div>
+          <div>
+            <dt>Exit code</dt>
+            <dd id="validation-exit-code">-</dd>
+          </div>
+          <div>
+            <dt>Input</dt>
+            <dd id="validation-input">Extension/config/recycle-device-catalog.fixture.json</dd>
+          </div>
+        </dl>
+
+        <p class="validation-hint" id="validation-hint">Run Validate Fixture or Validate Candidate to see the latest validation result.</p>
+
+        <div class="output-grid">
+          <div>
+            <h3>stdout</h3>
+            <pre id="validation-stdout">Validation output will appear here.</pre>
+          </div>
+          <div>
+            <h3>stderr</h3>
+            <pre id="validation-stderr">Validation errors will appear here.</pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-spaced" aria-labelledby="fixture-heading">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">In-memory candidate</p>
+            <h2 id="fixture-heading">Recycle Device Catalog Devices</h2>
+          </div>
+          <p class="source-path" id="fixture-source">Extension/config/recycle-device-catalog.fixture.json</p>
+        </div>
+
+        <dl class="summary-grid" aria-label="Fixture summary">
+          <div>
+            <dt>Schema</dt>
+            <dd id="schema-version">-</dd>
+          </div>
+          <div>
+            <dt>Revision</dt>
+            <dd id="revision">-</dd>
+          </div>
+          <div>
+            <dt>Devices</dt>
+            <dd id="device-count">-</dd>
+          </div>
+          <div>
+            <dt>Enabled / Disabled</dt>
+            <dd id="enabled-count">-</dd>
+          </div>
+          <div>
+            <dt>Categories</dt>
+            <dd id="category-count">-</dd>
+          </div>
+        </dl>
+
+        <div class="category-list" id="category-list" aria-label="Fixture category list"></div>
+
+        <div class="table-tools" aria-label="Device table filters">
+          <label>
+            Search
+            <input id="device-search" type="search" placeholder="deviceId, categoryId, displayName, materialId" disabled>
+          </label>
+          <label>
+            Category
+            <select id="category-filter" disabled>
+              <option value="">All categories</option>
+            </select>
+          </label>
+          <button id="add-device-btn" type="button" disabled>Add Device</button>
+          <button id="revert-candidate-btn" type="button" disabled>Revert changes</button>
+          <p class="filter-status" id="filter-status">Waiting for fixture</p>
+        </div>
+
+        <div class="device-workspace">
+          <div class="table-wrap device-list-wrap">
+            <table class="device-list-table">
+              <thead>
+                <tr>
+                  <th>deviceId</th>
+                  <th>categoryId</th>
+                  <th>displayName</th>
+                  <th>materialId</th>
+                  <th>enabled</th>
+                </tr>
+              </thead>
+              <tbody id="device-table-body">
+                <tr>
+                  <td colspan="5">Loading devices...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside class="device-editor" id="device-editor" aria-labelledby="device-editor-heading">
+            <div class="editor-header">
+              <div>
+                <p class="eyebrow">Selected device</p>
+                <h3 id="device-editor-heading">Device editor</h3>
+              </div>
+              <div class="editor-header-actions">
+                <p class="selected-device-status" id="selected-device-status">No device selected</p>
+                <div class="add-device-actions">
+                  <button id="commit-add-device-btn" type="button" hidden>Add to candidate</button>
+                  <button id="cancel-add-device-btn" type="button" hidden>Cancel</button>
+                </div>
+              </div>
+            </div>
+
+            <p class="add-device-status" id="add-device-status"></p>
+
+            <dl class="readonly-grid" aria-label="Selected device identity">
+              <div>
+                <dt>deviceId</dt>
+                <dd id="editor-deviceId">-</dd>
+              </div>
+              <div>
+                <dt>categoryId</dt>
+                <dd id="editor-categoryId">-</dd>
+              </div>
+            </dl>
+
+            <div class="editor-form" id="device-editor-form">
+              <label class="add-only-field" hidden>
+                deviceId
+                <input id="editor-deviceId-input" data-add-field="deviceId" type="text" autocomplete="off" disabled>
+              </label>
+              <label class="add-only-field" hidden>
+                categoryId
+                <select id="editor-categoryId-select" data-add-field="categoryId" disabled></select>
+              </label>
+              <label>
+                displayName
+                <input id="editor-displayName" data-editor-field="displayName" type="text" disabled>
+              </label>
+              <label>
+                materialId
+                <input id="editor-materialId" data-editor-field="materialId" type="text" disabled>
+              </label>
+              <label>
+                legacyMaterialIds
+                <textarea id="editor-legacyMaterialIds" data-editor-field="legacyMaterialIds" disabled></textarea>
+              </label>
+              <label>
+                imagePath
+                <input id="editor-imagePath" data-editor-field="imagePath" type="text" disabled>
+              </label>
+              <div class="asset-path-control">
+                <select id="editor-imagePath-select" data-editor-field="imagePath" disabled>
+                  <option value="">Manual / empty</option>
+                </select>
+                <div class="asset-preview asset-preview-empty" id="editor-imagePath-preview">No preview</div>
+              </div>
+              <label>
+                helpImagePath
+                <input id="editor-helpImagePath" data-editor-field="helpImagePath" type="text" disabled>
+              </label>
+              <div class="asset-path-control">
+                <select id="editor-helpImagePath-select" data-editor-field="helpImagePath" disabled>
+                  <option value="">Manual / empty</option>
+                </select>
+                <div class="asset-preview asset-preview-empty" id="editor-helpImagePath-preview">No preview</div>
+              </div>
+              <label>
+                warningText
+                <textarea id="editor-warningText" data-editor-field="warningText" disabled></textarea>
+              </label>
+              <label>
+                validationProfileId
+                <select id="editor-validationProfileId" data-editor-field="validationProfileId" disabled></select>
+              </label>
+              <label class="checkbox-label editor-checkbox">
+                <input id="editor-enabled" data-editor-field="enabled" type="checkbox" disabled>
+                enabled
+              </label>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

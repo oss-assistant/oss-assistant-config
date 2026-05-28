@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "revision": "dev-current",
+  "generatedAt": "2026-05-28T13:16:23.638Z",
+  "deviceImages": [
+    {
+      "path": "images/devices/16x9/Cube_ZTE_MC_801A_5G-removebg-preview.webp",
+      "fileName": "Cube_ZTE_MC_801A_5G-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/DTH_Nagra_DTS3460.webp",
+      "fileName": "DTH_Nagra_DTS3460.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/DTH_STB_KAON_KSTB1001-BCM73625-1GB-removebg-preview.webp",
+      "fileName": "DTH_STB_KAON_KSTB1001-BCM73625-1GB-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/GPON_CPE_ZXHN_F600-removebg-preview.webp",
+      "fileName": "GPON_CPE_ZXHN_F600-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/GPON_CPE_ZXHN_F6600P_V9.0-removebg-preview.webp",
+      "fileName": "GPON_CPE_ZXHN_F6600P_V9.0-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/GPON_CPE_ZXHN_F670L_V1.1-removebg-preview.webp",
+      "fileName": "GPON_CPE_ZXHN_F670L_V1.1-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei b310 black.webp",
+      "fileName": "Huawei b310 black.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei b311 black.webp",
+      "fileName": "Huawei b311 black.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei b311 white.webp",
+      "fileName": "Huawei b311 white.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei_B310s-22_generic-removebg-preview.webp",
+      "fileName": "Huawei_B310s-22_generic-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei_B310s-22+2pc_FMC_external_antenna-removebg-preview.webp",
+      "fileName": "Huawei_B310s-22+2pc_FMC_external_antenna-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei_B311-221_black_+ext._Antenna-removebg-preview.webp",
+      "fileName": "Huawei_B311-221_black_+ext._Antenna-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei_B311-221_white+ext._Antenna-removebg-preview.webp",
+      "fileName": "Huawei_B311-221_white+ext._Antenna-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei_GPON_HG8145V5-removebg-preview.webp",
+      "fileName": "Huawei_GPON_HG8145V5-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Huawei_HA35-22AM.webp",
+      "fileName": "Huawei_HA35-22AM.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Kaon_KSTB5019_XploreTV_IP_only__BCM7268_-removebg-preview.webp",
+      "fileName": "Kaon_KSTB5019_XploreTV_IP_only__BCM7268_-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Kaon_KSTB5020_XploreTV.webp",
+      "fileName": "Kaon_KSTB5020_XploreTV.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Kaon_KSTB6106_DVB-C_Zapper-removebg-preview.webp",
+      "fileName": "Kaon_KSTB6106_DVB-C_Zapper-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Modem_ADB_VoIP_VV_2220_AT-removebg-preview.webp",
+      "fileName": "Modem_ADB_VoIP_VV_2220_AT-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Modem_Technicolor7200D3WiFirefurbCROA-removebg-preview.webp",
+      "fileName": "Modem_Technicolor7200D3WiFirefurbCROA-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Router_Huawei_K562E-10_Home_WiFi-removebg-preview.webp",
+      "fileName": "Router_Huawei_K562E-10_Home_WiFi-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Router_TP_Link_HX520_Home_WiFi-removebg-preview.webp",
+      "fileName": "Router_TP_Link_HX520_Home_WiFi-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Router_TP-Link_Archer_A6AC1200DB_LVA-removebg-preview.webp",
+      "fileName": "Router_TP-Link_Archer_A6AC1200DB_LVA-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Router_TP-Link_EX220-removebg-preview.webp",
+      "fileName": "Router_TP-Link_EX220-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Router_TP-Link_TL-WR850N-removebg-preview.webp",
+      "fileName": "Router_TP-Link_TL-WR850N-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/Router_ZTE_ZXHN_H3601P_RG_WiFi-removebg-preview.webp",
+      "fileName": "Router_ZTE_ZXHN_H3601P_RG_WiFi-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/STB_SDMC_DV9161__AndroidTV_-removebg-preview.webp",
+      "fileName": "STB_SDMC_DV9161__AndroidTV_-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/STB_ZTE_B866V2F02__AndroidTV_-removebg-preview.webp",
+      "fileName": "STB_ZTE_B866V2F02__AndroidTV_-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/STB_ZXV_B700v5_A1-removebg-preview.webp",
+      "fileName": "STB_ZXV_B700v5_A1-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/STB_ZXV_B700v5-removebg-preview.webp",
+      "fileName": "STB_ZXV_B700v5-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/TP_Link_NX220v_5G-removebg-preview.webp",
+      "fileName": "TP_Link_NX220v_5G-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/TP-LINK_Deco_M4__AC1200__2xGbE__MU-MIMO-removebg-preview.webp",
+      "fileName": "TP-LINK_Deco_M4__AC1200__2xGbE__MU-MIMO-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/TP-Link_NX520_5G-removebg-preview.webp",
+      "fileName": "TP-Link_NX520_5G-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_G5B1_5G-removebg-preview.webp",
+      "fileName": "ZTE_G5B1_5G-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_G5TS_5G-removebg-preview.webp",
+      "fileName": "ZTE_G5TS_5G-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_MC888A_5G-removebg-preview.webp",
+      "fileName": "ZTE_MC888A_5G-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_MF283U+ext._Antenna-removebg-preview.webp",
+      "fileName": "ZTE_MF283U+ext._Antenna-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_MF293N_+_ext._Antenna-removebg-preview.webp",
+      "fileName": "ZTE_MF293N_+_ext._Antenna-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_MF296R-removebg-preview.webp",
+      "fileName": "ZTE_MF296R-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_ONT_ZXHN_F6600R-removebg-preview.webp",
+      "fileName": "ZTE_ONT_ZXHN_F6600R-removebg-preview.webp",
+      "kind": "deviceImage"
+    },
+    {
+      "path": "images/devices/16x9/ZTE_ZXHN_F600.webp",
+      "fileName": "ZTE_ZXHN_F600.webp",
+      "kind": "deviceImage"
+    }
+  ],
+  "helpImages": [
+    {
+      "path": "images/recycle-help/ADB modem vv2220.webp",
+      "fileName": "ADB modem vv2220.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/android_iptv-a1-sdmc-dv9161.webp",
+      "fileName": "android_iptv-a1-sdmc-dv9161.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/android_iptv-zte-zxv10-b700v5-iptv.webp",
+      "fileName": "android_iptv-zte-zxv10-b700v5-iptv.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/android_iptv-zte-zxv10-b866v2f02-richmedia-box.webp",
+      "fileName": "android_iptv-zte-zxv10-b866v2f02-richmedia-box.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/Deco M4, AC1200, 2xGbE, MU-MIMO.webp",
+      "fileName": "Deco M4, AC1200, 2xGbE, MU-MIMO.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/DTH Nagra DTS3460.webp",
+      "fileName": "DTH Nagra DTS3460.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/GPON CPE ZXHN F6600P.webp",
+      "fileName": "GPON CPE ZXHN F6600P.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/GPON CPE ZXHN F670V.webp",
+      "fileName": "GPON CPE ZXHN F670V.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/Huawei GPON HG8145V5.webp",
+      "fileName": "Huawei GPON HG8145V5.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/Huawei HA35-22 HIBRID.webp",
+      "fileName": "Huawei HA35-22 HIBRID.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/HX520 Home.webp",
+      "fileName": "HX520 Home.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/KSTB6106 Zapper.webp",
+      "fileName": "KSTB6106 Zapper.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/Modem Technivolor v1.webp",
+      "fileName": "Modem Technivolor v1.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/Modem Technivolor v2.webp",
+      "fileName": "Modem Technivolor v2.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/TP-Link EX220 Home.webp",
+      "fileName": "TP-Link EX220 Home.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/TP-Link EX220.webp",
+      "fileName": "TP-Link EX220.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/ZTE ZXHN F600.webp",
+      "fileName": "ZTE ZXHN F600.webp",
+      "kind": "helpImage"
+    },
+    {
+      "path": "images/recycle-help/ZTE ZXHN H3601P.webp",
+      "fileName": "ZTE ZXHN H3601P.webp",
+      "kind": "helpImage"
+    }
+  ]
+}
