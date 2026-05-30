@@ -3,21 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Recycle Configurator Skeleton</title>
+    <title>Recycle Configurator</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="./app.js" defer></script>
   </head>
   <body>
     <main class="shell">
       <section class="panel">
-        <p class="eyebrow">Dev-only local tool</p>
-        <h1>Recycle Configurator Skeleton</h1>
+        <p class="eyebrow">Static config tool</p>
+        <h1>Recycle Configurator</h1>
         <p>
-          Този dev-only skeleton преглежда fixture-а и редактира metadata за съществуващи устройства само в browser memory.
-          Не е свързан с extension runtime и не може да save-ва config.
+          Редактор в browser memory за recycle device catalog metadata. Промените остават само в текущата browser сесия, докато не export-неш candidate JSON и не го валидираш преди publish.
         </p>
         <p class="notice">
-          Промените са само в browser-memory. Те не се записват в project files, освен ако не export-неш и validate-неш отделен candidate JSON.
+          Промените са browser-memory only: не се записват автоматично и трябва да бъдат export-нати и валидирани преди publish.
         </p>
 
         <dl class="status-grid" aria-label="Current skeleton status">
@@ -194,38 +193,66 @@
 
             <dl class="readonly-grid" aria-label="Selected device identity">
               <div>
-                <dt>deviceId</dt>
+                <dt>
+                  <span class="field-label-row">
+                    <span class="field-label-text">ID на устройство</span>
+                    <span class="field-info" title="deviceId: стабилен JSON key за устройството в recycle catalog."></span>
+                  </span>
+                </dt>
                 <dd id="editor-deviceId">-</dd>
               </div>
               <div>
-                <dt>categoryId</dt>
+                <dt>
+                  <span class="field-label-row">
+                    <span class="field-label-text">Категория</span>
+                    <span class="field-info" title="categoryId: категория за групиране и филтриране на устройството."></span>
+                  </span>
+                </dt>
                 <dd id="editor-categoryId">-</dd>
               </div>
             </dl>
 
             <div class="editor-form" id="device-editor-form">
               <label class="add-only-field" hidden>
-                deviceId
+                <span class="field-label-row">
+                  <span class="field-label-text">ID на устройство</span>
+                  <span class="field-info" title="deviceId: стабилен JSON key за устройството в recycle catalog."></span>
+                </span>
                 <input id="editor-deviceId-input" data-add-field="deviceId" type="text" autocomplete="off" disabled>
               </label>
               <label class="add-only-field" hidden>
-                categoryId
+                <span class="field-label-row">
+                  <span class="field-label-text">Категория</span>
+                  <span class="field-info" title="categoryId: категория за групиране и филтриране на устройството."></span>
+                </span>
                 <select id="editor-categoryId-select" data-add-field="categoryId" disabled></select>
               </label>
               <label>
-                displayName
+                <span class="field-label-row">
+                  <span class="field-label-text">Име за визуализация</span>
+                  <span class="field-info" title="displayName: име, което се показва в configurator-а и runtime UI."></span>
+                </span>
                 <input id="editor-displayName" data-editor-field="displayName" type="text" disabled>
               </label>
               <label>
-                materialId
+                <span class="field-label-row">
+                  <span class="field-label-text">Material ID</span>
+                  <span class="field-info" title="materialId: основен SAP/Material ID за устройството."></span>
+                </span>
                 <input id="editor-materialId" data-editor-field="materialId" type="text" disabled>
               </label>
               <label>
-                legacyMaterialIds
+                <span class="field-label-row">
+                  <span class="field-label-text">Legacy Material IDs</span>
+                  <span class="field-info" title="legacyMaterialIds: стари или алтернативни SAP/Material ID стойности."></span>
+                </span>
                 <textarea id="editor-legacyMaterialIds" data-editor-field="legacyMaterialIds" disabled></textarea>
               </label>
               <label>
-                imagePath
+                <span class="field-label-row">
+                  <span class="field-label-text">Път до изображението</span>
+                  <span class="field-info" title="imagePath: относителен път до изображение на устройството, обикновено images/devices/16x9/..."></span>
+                </span>
                 <input id="editor-imagePath" data-editor-field="imagePath" type="text" disabled>
               </label>
               <div class="asset-path-control">
@@ -235,7 +262,10 @@
                 <div class="asset-preview asset-preview-empty" id="editor-imagePath-preview">No preview</div>
               </div>
               <label>
-                helpImagePath
+                <span class="field-label-row">
+                  <span class="field-label-text">Help изображение</span>
+                  <span class="field-info" title="helpImagePath: optional help/serial изображение, отделно от основното изображение."></span>
+                </span>
                 <input id="editor-helpImagePath" data-editor-field="helpImagePath" type="text" disabled>
               </label>
               <div class="asset-path-control">
@@ -245,16 +275,25 @@
                 <div class="asset-preview asset-preview-empty" id="editor-helpImagePath-preview">No preview</div>
               </div>
               <label>
-                warningText
+                <span class="field-label-row">
+                  <span class="field-label-text">Предупредителен текст</span>
+                  <span class="field-info" title="warningText: optional предупредителен текст за това устройство."></span>
+                </span>
                 <textarea id="editor-warningText" data-editor-field="warningText" disabled></textarea>
               </label>
               <label>
-                validationProfileId
+                <span class="field-label-row">
+                  <span class="field-label-text">Профил за валидация</span>
+                  <span class="field-info" title="validationProfileId: предварително дефиниран validation профил за правилата на сериен номер/вход."></span>
+                </span>
                 <select id="editor-validationProfileId" data-editor-field="validationProfileId" disabled></select>
               </label>
               <label class="checkbox-label editor-checkbox">
                 <input id="editor-enabled" data-editor-field="enabled" type="checkbox" disabled>
-                enabled
+                <span class="field-label-row">
+                  <span class="field-label-text">Активно</span>
+                  <span class="field-info" title="enabled: указва дали устройството е активно в catalog-а."></span>
+                </span>
               </label>
             </div>
           </aside>
