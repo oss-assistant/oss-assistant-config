@@ -130,6 +130,7 @@ let activeCategory = "";
 let selectedDeviceIndex = null;
 let editorMode = "edit";
 let addDraft = null;
+let autoSelectedAddValidationProfileId = "";
 let lastCandidateValidationJson = "";
 let candidateValidationHasRun = false;
 let assetInventory = {
@@ -671,6 +672,12 @@ function updateAddDraftField(field, value) {
     addDraft[field] = normalizeString(value);
   }
 
+  if (field === "validationProfileId") {
+    autoSelectedAddValidationProfileId = "";
+  } else if (field === "categoryId") {
+    clearAddDraftValidationProfileIfOutOfCategory(addDraft);
+  }
+
   setText("add-device-status", addDeviceCategoryWarning(addDraft.categoryId));
 }
 
@@ -679,6 +686,99 @@ function addDeviceCategoryWarning(categoryId) {
     return "Warning: this category has validator material filter/order guards. Run Validate Candidate before using the export.";
   }
   return "";
+}
+
+function validationProfileUsageForCategory(categoryId) {
+  const normalizedCategoryId = normalizeString(categoryId);
+  const devices = Array.isArray(currentCandidate && currentCandidate.devices) ? currentCandidate.devices : [];
+  const usage = new Map();
+
+  devices.forEach(device => {
+    if (normalizeString(device.categoryId) !== normalizedCategoryId) return;
+    const profileId = normalizeString(device.validationProfileId);
+    if (!profileId) return;
+    usage.set(profileId, (usage.get(profileId) || 0) + 1);
+  });
+
+  return Array.from(usage.entries())
+    .map(([profileId, count]) => ({ profileId, count }))
+    .sort((left, right) => right.count - left.count || left.profileId.localeCompare(right.profileId));
+}
+
+function inferredValidationProfileForCategory(categoryId) {
+  const usage = validationProfileUsageForCategory(categoryId);
+  return usage.length === 1 ? usage[0].profileId : "";
+}
+
+function validationProfileOptionsForAddDraft(draft) {
+  const usage = validationProfileUsageForCategory(draft && draft.categoryId);
+  return usage.length ? usage.map(item => item.profileId) : validationProfileOptions();
+}
+
+function categoryUsesValidationProfile(categoryId, profileId) {
+  const normalizedProfileId = normalizeString(profileId);
+  if (!normalizedProfileId) return true;
+
+  const usage = validationProfileUsageForCategory(categoryId);
+  return !usage.length || usage.some(item => item.profileId === normalizedProfileId);
+}
+
+function clearAddDraftValidationProfileIfOutOfCategory(draft) {
+  if (!draft) return "";
+
+  const currentProfileId = normalizeString(draft.validationProfileId);
+  if (!currentProfileId || categoryUsesValidationProfile(draft.categoryId, currentProfileId)) {
+    return "";
+  }
+
+  draft.validationProfileId = "";
+  autoSelectedAddValidationProfileId = "";
+  return currentProfileId;
+}
+
+function applyAddDraftValidationProfileSuggestion(draft) {
+  if (!draft) return "";
+
+  clearAddDraftValidationProfileIfOutOfCategory(draft);
+
+  const currentProfileId = normalizeString(draft.validationProfileId);
+  const wasAutoSelected = Boolean(currentProfileId && currentProfileId === autoSelectedAddValidationProfileId);
+  const inferredProfileId = inferredValidationProfileForCategory(draft.categoryId);
+
+  if (currentProfileId && !wasAutoSelected) return "";
+
+  if (!inferredProfileId) {
+    if (wasAutoSelected) {
+      draft.validationProfileId = "";
+      autoSelectedAddValidationProfileId = "";
+    }
+    return "";
+  }
+
+  if (inferredProfileId) {
+    draft.validationProfileId = inferredProfileId;
+    autoSelectedAddValidationProfileId = inferredProfileId;
+  }
+
+  return inferredProfileId;
+}
+
+function validationProfileHintForAddDraft(draft, suggestedProfileId) {
+  const categoryId = normalizeString(draft && draft.categoryId);
+  if (!categoryId) return "Select a category before choosing validationProfileId.";
+
+  const usage = validationProfileUsageForCategory(categoryId);
+  if (!usage.length) return "Choose validationProfileId from the loaded predefined profiles.";
+
+  if (usage.length === 1) {
+    const profileId = usage[0].profileId;
+    return suggestedProfileId === profileId
+      ? `Suggested from selected category: ${profileId}.`
+      : `Selected category currently uses: ${profileId}.`;
+  }
+
+  const profiles = usage.map(item => `${item.profileId} (${item.count})`).join(", ");
+  return `This category has multiple profiles. Choose one manually: ${profiles}.`;
 }
 
 function validateAddDraft() {
@@ -785,6 +885,7 @@ function enabledListCell(row, device) {
 function selectDevice(index) {
   editorMode = "edit";
   addDraft = null;
+  autoSelectedAddValidationProfileId = "";
   setText("add-device-status", "");
   selectedDeviceIndex = index;
   renderFilteredDevices();
@@ -887,7 +988,8 @@ function populateValidationProfileSelect(select, value, options = {}) {
     select.appendChild(blank);
   }
 
-  validationProfileOptions().forEach(profileId => {
+  const profileIds = Array.isArray(options.profileIds) ? options.profileIds : validationProfileOptions();
+  profileIds.forEach(profileId => {
     const option = document.createElement("option");
     option.value = profileId;
     option.textContent = profileId;
@@ -924,6 +1026,7 @@ function renderDeviceEditor() {
   if (editorMode === "add") {
     const draft = addDraft || createEmptyAddDraft();
     addDraft = draft;
+    const suggestedProfileId = applyAddDraftValidationProfileSuggestion(draft);
 
     setEditorControlsEnabled(true);
     setAddOnlyFieldsVisible(true);
@@ -954,7 +1057,11 @@ function renderDeviceEditor() {
 
     populateAssetSelect(byId("editor-imagePath-select"), "imagePath", draft.imagePath);
     populateAssetSelect(byId("editor-helpImagePath-select"), "helpImagePath", draft.helpImagePath);
-    populateValidationProfileSelect(byId("editor-validationProfileId"), draft.validationProfileId, { includeBlank: true });
+    populateValidationProfileSelect(byId("editor-validationProfileId"), draft.validationProfileId, {
+      includeBlank: true,
+      profileIds: validationProfileOptionsForAddDraft(draft)
+    });
+    setText("validation-profile-hint", validationProfileHintForAddDraft(draft, suggestedProfileId));
     setAssetPreview(byId("editor-imagePath-preview"), draft.imagePath);
     setAssetPreview(byId("editor-helpImagePath-preview"), draft.helpImagePath);
 
@@ -971,6 +1078,7 @@ function renderDeviceEditor() {
   setAddDeviceActionsVisible(false);
   setText("device-editor-heading", "Device editor");
   setText("add-device-status", "");
+  setText("validation-profile-hint", "");
   setText("editor-deviceId", hasDevice ? device.deviceId : "-");
   setText("editor-categoryId", hasDevice ? device.categoryId : "-");
 
@@ -1008,6 +1116,7 @@ function renderFixture(data) {
   selectedDeviceIndex = null;
   editorMode = "edit";
   addDraft = null;
+  autoSelectedAddValidationProfileId = "";
   resetFilterControls();
   setText("fixture-status", data.ok ? "Loaded" : "Failed");
   setText("export-status", currentCandidate ? "Ready" : "Unavailable");
@@ -1039,6 +1148,7 @@ function renderError(error) {
   selectedDeviceIndex = null;
   editorMode = "edit";
   addDraft = null;
+  autoSelectedAddValidationProfileId = "";
   lastCandidateValidationJson = "";
   candidateValidationHasRun = false;
   activeSearch = "";
@@ -1082,6 +1192,7 @@ function revertCandidate() {
   selectedDeviceIndex = null;
   editorMode = "edit";
   addDraft = null;
+  autoSelectedAddValidationProfileId = "";
   setText("export-status", "Ready");
   resetValidationUi("Reverted to the loaded baseline. Run Validate Candidate to validate the current browser-memory candidate.");
   updateSummaryFromCandidate();
@@ -1112,6 +1223,7 @@ function setCurrentCandidateFromImport(candidate, fileName) {
   selectedDeviceIndex = null;
   editorMode = "edit";
   addDraft = null;
+  autoSelectedAddValidationProfileId = "";
   resetFilterControls();
   setText("fixture-status", "Imported");
   setText("fixture-source", `Imported candidate: ${fileName}`);
@@ -1260,6 +1372,7 @@ function startAddDevice() {
   if (!currentCandidate) return;
   editorMode = "add";
   addDraft = createEmptyAddDraft();
+  autoSelectedAddValidationProfileId = "";
   setText("add-device-status", "");
   renderDeviceEditor();
 }
@@ -1267,6 +1380,7 @@ function startAddDevice() {
 function cancelAddDevice() {
   editorMode = "edit";
   addDraft = null;
+  autoSelectedAddValidationProfileId = "";
   setText("add-device-status", "");
   renderFilteredDevices();
 }
@@ -1285,6 +1399,7 @@ function commitAddDevice() {
   selectedDeviceIndex = currentCandidate.devices.length - 1;
   editorMode = "edit";
   addDraft = null;
+  autoSelectedAddValidationProfileId = "";
 
   activeSearch = "";
   activeCategory = result.device.categoryId;
