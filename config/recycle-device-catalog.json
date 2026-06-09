@@ -125,7 +125,7 @@
     {
       "deviceId": "zte_g5b1",
       "categoryId": "netbox",
-      "displayName": "ZTE G5B PREVIEW TEST",
+      "displayName": "ZTE G5B",
       "materialId": "124173",
       "legacyMaterialIds": [],
       "imagePath": "images/devices/16x9/ZTE_G5B1_5G-removebg-preview.webp",
@@ -143,20 +143,8 @@
       "imagePath": "images/devices/16x9/ZTE_MF296R-removebg-preview.webp",
       "helpImagePath": "",
       "warningText": "",
-      "validationProfileId": "router_13_alnum",
-      "enabled": true
-    },
-    {
-      "deviceId": "preview_test_unknown_device",
-      "categoryId": "netbox",
-      "displayName": "Preview Test Unknown Device",
-      "materialId": "",
-      "legacyMaterialIds": [],
-      "imagePath": "images/devices/16x9/ZTE_G5B1_5G-removebg-preview.webp",
-      "helpImagePath": "",
-      "warningText": "",
       "validationProfileId": "imei15_luhn",
-      "enabled": false
+      "enabled": true
     },
     {
       "deviceId": "zte_mc888a",
