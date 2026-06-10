@@ -409,42 +409,6 @@
       "warningText": "",
       "validationProfileId": "category_gpon_current",
       "enabled": true
-    },
-    {
-      "deviceId": "preview_test_eligible_device",
-      "categoryId": "routers",
-      "displayName": "Preview Test Eligible Device",
-      "materialId": "123357",
-      "legacyMaterialIds": [],
-      "imagePath": "images/devices/16x9/Router_ZTE_ZXHN_H3601P_RG_WiFi-removebg-preview.webp",
-      "helpImagePath": "images/recycle-help/ZTE ZXHN H3601P.webp",
-      "warningText": "",
-      "validationProfileId": "router_zte_h3601p_zte_prefix_15_alnum",
-      "enabled": true
-    },
-    {
-      "deviceId": "preview_test_blocked_cam_device",
-      "categoryId": "cam_modules",
-      "displayName": "Preview Test Blocked CAM Device",
-      "materialId": "118562",
-      "legacyMaterialIds": [],
-      "imagePath": "images/devices/16x9/Router_ZTE_ZXHN_H3601P_RG_WiFi-removebg-preview.webp",
-      "helpImagePath": "images/recycle-help/ZTE ZXHN H3601P.webp",
-      "warningText": "",
-      "validationProfileId": "router_13_alnum",
-      "enabled": true
-    },
-    {
-      "deviceId": "preview_test_disabled_device",
-      "categoryId": "routers",
-      "displayName": "Preview Test Disabled Device",
-      "materialId": "123357",
-      "legacyMaterialIds": [],
-      "imagePath": "images/devices/16x9/Router_ZTE_ZXHN_H3601P_RG_WiFi-removebg-preview.webp",
-      "helpImagePath": "images/recycle-help/ZTE ZXHN H3601P.webp",
-      "warningText": "",
-      "validationProfileId": "router_zte_h3601p_zte_prefix_15_alnum",
-      "enabled": false
     }
   ],
   "categoryHelp": {
@@ -538,7 +502,6 @@
       "118552",
       "121150",
       "121376",
-      "123357",
       "123357"
     ],
     "gpon": [
@@ -548,9 +511,6 @@
       "118564",
       "122933",
       "122944"
-    ],
-    "cam_modules": [
-      "118562"
     ]
   }
 }
