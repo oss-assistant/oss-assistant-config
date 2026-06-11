@@ -210,7 +210,7 @@ function normalizeCatalogCandidateDevice(device) {
 
 function buildCandidateFromCatalog(catalog) {
   const source = isPlainObject(catalog) ? catalog : {};
-  return {
+  const candidate = {
     schemaVersion: source.schemaVersion,
     revision: normalizeString(source.revision),
     devices: Array.isArray(source.devices) ? source.devices.map(normalizeCatalogCandidateDevice) : [],
@@ -218,6 +218,12 @@ function buildCandidateFromCatalog(catalog) {
     validationProfiles: Array.isArray(source.validationProfiles) ? source.validationProfiles.map(normalizeString) : [],
     generatedMaterialFilters: isPlainObject(source.generatedMaterialFilters) ? source.generatedMaterialFilters : {}
   };
+
+  if (Object.prototype.hasOwnProperty.call(source, "runtimeContract")) {
+    candidate.runtimeContract = cloneJson(source.runtimeContract);
+  }
+
+  return candidate;
 }
 
 function buildFixtureResponseFromCatalog(catalog, sourcePath) {
