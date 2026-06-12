@@ -11,6 +11,7 @@ const allowedTopLevelItems = new Set([
   "config",
   "configurator",
   "images",
+  "staging",
 ]);
 
 const requiredFiles = [
