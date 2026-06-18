@@ -65,6 +65,7 @@ const knownRuntimeCapabilities = new Set([
   "remoteAdditionsDebug",
   "remoteAdditionsAuto",
   "remoteMaterialPreview",
+  "remoteMaterialAuto",
   "remoteMaterialDebug",
   "resolvedApplyPlan",
 ]);
