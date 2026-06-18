@@ -63,6 +63,7 @@ const supportedRuntimeContractVersions = new Set([1]);
 const knownRuntimeCapabilities = new Set([
   "visualOverlay",
   "remoteAdditionsDebug",
+  "remoteAdditionsAuto",
   "remoteMaterialPreview",
   "remoteMaterialDebug",
   "resolvedApplyPlan",

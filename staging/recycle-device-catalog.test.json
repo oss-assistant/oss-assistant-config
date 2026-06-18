@@ -532,6 +532,7 @@
     "supportedCapabilities": [
       "visualOverlay",
       "remoteAdditionsDebug",
+      "remoteAdditionsAuto",
       "remoteMaterialPreview",
       "remoteMaterialDebug",
       "resolvedApplyPlan"
