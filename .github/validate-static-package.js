@@ -48,6 +48,7 @@ const requiredCatalogTopLevelKeys = [
 const allowedCatalogTopLevelKeys = new Set([
   ...requiredCatalogTopLevelKeys,
   "runtimeContract",
+  "remoteMaterialModels",
 ]);
 
 const allowedRuntimeContractKeys = new Set([
@@ -66,6 +67,7 @@ const knownRuntimeCapabilities = new Set([
   "remoteAdditionsAuto",
   "remoteMaterialPreview",
   "remoteMaterialAuto",
+  "remoteMaterialModelsAuto",
   "remoteMaterialDebug",
   "resolvedApplyPlan",
 ]);
@@ -102,6 +104,7 @@ const knownFieldPolicyKeys = new Set([
   "validationProfileId",
   "enabled",
   "generatedMaterialFilters",
+  "remoteMaterialModels",
   "schemaVersion",
   "revision",
   "runtimeContract",
@@ -136,6 +139,24 @@ function addWarning(message) {
 
 function isPlainObject(value) {
   return !!value && typeof value === "object" && !Array.isArray(value);
+}
+
+function normalizeMaterialId(value) {
+  return String(value || "").trim().replace(/\D+/g, "");
+}
+
+function isSafeConfigId(value) {
+  return typeof value === "string" && /^[a-z0-9][a-z0-9_-]{0,79}$/i.test(value);
+}
+
+function isSafeDisplayString(value) {
+  return (
+    typeof value === "string" &&
+    value.trim() === value &&
+    value.length > 0 &&
+    value.length <= 120 &&
+    !/[\u0000-\u001f\u007f<>]/.test(value)
+  );
 }
 
 function toPosix(relativePath) {
@@ -262,6 +283,117 @@ function validateRuntimeContract(runtimeContract) {
   validateRuntimeContractFieldPolicy(runtimeContract.fieldPolicy);
 }
 
+function validateRemoteMaterialModels(catalog) {
+  if (catalog.remoteMaterialModels === undefined) {
+    return;
+  }
+
+  if (!Array.isArray(catalog.remoteMaterialModels)) {
+    addError("remoteMaterialModels must be an array when present");
+    return;
+  }
+
+  const devices = Array.isArray(catalog.devices) ? catalog.devices : [];
+  const devicesById = new Map();
+  const materialOwnersById = new Map();
+  devices.forEach(device => {
+    if (!isPlainObject(device)) {
+      return;
+    }
+
+    const deviceId = String(device.deviceId || "").trim();
+    const materialId = normalizeMaterialId(device.materialId);
+    if (deviceId && !devicesById.has(deviceId)) {
+      devicesById.set(deviceId, device);
+    }
+    if (deviceId && materialId) {
+      if (!materialOwnersById.has(materialId)) {
+        materialOwnersById.set(materialId, new Set());
+      }
+      materialOwnersById.get(materialId).add(deviceId);
+    }
+  });
+
+  const seenMaterialIds = new Set();
+  const seenDeviceIds = new Set();
+  catalog.remoteMaterialModels.forEach((model, index) => {
+    const label = `remoteMaterialModels[${index}]`;
+    if (!isPlainObject(model)) {
+      addError(`${label} must be an object`);
+      return;
+    }
+
+    for (const key of Object.keys(model)) {
+      if (!["materialId", "deviceId", "categoryId", "name"].includes(key)) {
+        addError(`${label} contains unexpected key: ${key}`);
+      }
+    }
+
+    const rawMaterialId = String(model.materialId || "").trim();
+    const materialId = normalizeMaterialId(model.materialId);
+    const deviceId = String(model.deviceId || "").trim();
+    const categoryId = String(model.categoryId || "").trim();
+    const name = String(model.name || "");
+    const idLabel = materialId || deviceId || label;
+
+    if (!rawMaterialId || rawMaterialId !== materialId || !/^\d+$/.test(rawMaterialId)) {
+      addError(`${idLabel} remote material model materialId must be digits-only`);
+    } else if (seenMaterialIds.has(materialId)) {
+      addError(`${materialId} remote material model materialId is duplicated`);
+    }
+    if (materialId) {
+      seenMaterialIds.add(materialId);
+    }
+
+    if (!isSafeConfigId(deviceId)) {
+      addError(`${idLabel} remote material model deviceId is missing or unsafe`);
+    } else if (seenDeviceIds.has(deviceId)) {
+      addError(`${deviceId} has multiple remote material models`);
+    }
+    if (deviceId) {
+      seenDeviceIds.add(deviceId);
+    }
+
+    if (!isSafeConfigId(categoryId)) {
+      addError(`${idLabel} remote material model categoryId is missing or unsafe`);
+    }
+    if (categoryId === "cam_modules" || categoryId === "modems") {
+      addError(`${idLabel} remote material model must not use special category ${categoryId}`);
+    }
+
+    if (!isSafeDisplayString(name)) {
+      addError(`${idLabel} remote material model name is missing or unsafe`);
+    }
+
+    const boundDevice = devicesById.get(deviceId);
+    if (!boundDevice) {
+      addError(`${idLabel} remote material model references unknown deviceId ${deviceId}`);
+      return;
+    }
+
+    if (boundDevice.enabled === false) {
+      addError(`${idLabel} remote material model is bound to a disabled device`);
+    }
+    if (String(boundDevice.categoryId || "").trim() !== categoryId) {
+      addError(`${idLabel} remote material model categoryId does not match bound device`);
+    }
+    if (normalizeMaterialId(boundDevice.materialId) !== materialId) {
+      addError(`${idLabel} remote material model materialId does not match bound device`);
+    }
+    if (Array.isArray(boundDevice.legacyMaterialIds) && boundDevice.legacyMaterialIds.length > 0) {
+      addError(`${idLabel} remote material model must not rely on legacyMaterialIds`);
+    }
+
+    const materialOwners = materialOwnersById.get(materialId);
+    if (materialOwners) {
+      const conflictingOwners = Array.from(materialOwners).filter(ownerDeviceId => ownerDeviceId !== deviceId);
+      if (conflictingOwners.length > 0) {
+        addError(`${idLabel} remote material model conflicts with existing materialId owner(s): ${conflictingOwners.join(", ")}`);
+      }
+    }
+  });
+}
+
 function validateCatalog(catalog) {
   if (!isPlainObject(catalog)) {
     addError("recycle-device-catalog.json must contain a JSON object");
@@ -305,6 +437,7 @@ function validateCatalog(catalog) {
   }
 
   validateRuntimeContract(catalog.runtimeContract);
+  validateRemoteMaterialModels(catalog);
 }
 
 function scanDirectory(absoluteDir) {
@@ -449,6 +582,18 @@ for (const requiredFile of requiredFiles) {
 
 const catalog = readJson("config/recycle-device-catalog.json");
 validateCatalog(catalog);
+
+const stagingDir = path.join(repoRoot, "staging");
+if (fs.existsSync(stagingDir) && fs.lstatSync(stagingDir).isDirectory()) {
+  for (const entry of fs.readdirSync(stagingDir, { withFileTypes: true })) {
+    if (!entry.isFile() || !/^recycle-device-catalog\..+\.json$/i.test(entry.name)) {
+      continue;
+    }
+    const stagingCatalogPath = `staging/${entry.name}`;
+    const stagingCatalog = readJson(stagingCatalogPath);
+    validateCatalog(stagingCatalog);
+  }
+}
 
 const manifest = readJson("config/assets-manifest.json");
 validateManifest(manifest);
