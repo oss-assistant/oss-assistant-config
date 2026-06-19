@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "revision": "staging-demo-remote-material-models-auto-v1",
+  "revision": "staging-demo-remote-material-models-auto-v2",
   "devices": [
     {
       "deviceId": "stb_zxv_b700v5",
@@ -421,6 +421,78 @@
       "warningText": "",
       "validationProfileId": "router_zte_h3601p_zte_prefix_15_alnum",
       "enabled": true
+    },
+    {
+      "deviceId": "demo_austrian_brake_calipers",
+      "categoryId": "austrian",
+      "displayName": "DEMO Спирачни апарати",
+      "materialId": "222222",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/demo_brembo_test.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "austrian_huawei_ha35_22_hibrid",
+      "enabled": true
+    },
+    {
+      "deviceId": "demo_austrian_alternator",
+      "categoryId": "austrian",
+      "displayName": "DEMO Алтернатори",
+      "materialId": "333333",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/demo_generator_test.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "austrian_huawei_ha35_22_hibrid",
+      "enabled": true
+    },
+    {
+      "deviceId": "demo_austrian_steering_rack",
+      "categoryId": "austrian",
+      "displayName": "DEMO Рейки",
+      "materialId": "444444",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/demo_reika_test.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "austrian_huawei_ha35_22_hibrid",
+      "enabled": true
+    },
+    {
+      "deviceId": "demo_austrian_1",
+      "categoryId": "austrian",
+      "displayName": "DEMO Австрийско 1",
+      "materialId": "555555",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/demo_avstriisko_test_1.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "austrian_huawei_ha35_22_hibrid",
+      "enabled": true
+    },
+    {
+      "deviceId": "demo_austrian_2",
+      "categoryId": "austrian",
+      "displayName": "DEMO Австрийско 2",
+      "materialId": "666666",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/demo_avstriisko_test_2.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "austrian_huawei_ha35_22_hibrid",
+      "enabled": true
+    },
+    {
+      "deviceId": "demo_austrian_3",
+      "categoryId": "austrian",
+      "displayName": "DEMO Австрийско 3",
+      "materialId": "777777",
+      "legacyMaterialIds": [],
+      "imagePath": "images/devices/16x9/demo_avstriisko_test_3.webp",
+      "helpImagePath": "",
+      "warningText": "",
+      "validationProfileId": "austrian_huawei_ha35_22_hibrid",
+      "enabled": true
     }
   ],
   "categoryHelp": {
@@ -514,8 +586,7 @@
       "118552",
       "121150",
       "121376",
-      "123357",
-      "111111"
+      "123357"
     ],
     "gpon": [
       "1200014928",
@@ -557,6 +628,42 @@
       "deviceId": "demo_remote_router_111111",
       "categoryId": "routers",
       "name": "DEMO Remote Router SAP 111111"
+    },
+    {
+      "materialId": "222222",
+      "deviceId": "demo_austrian_brake_calipers",
+      "categoryId": "austrian",
+      "name": "DEMO Спирачни апарати SAP 222222"
+    },
+    {
+      "materialId": "333333",
+      "deviceId": "demo_austrian_alternator",
+      "categoryId": "austrian",
+      "name": "DEMO Алтернатори SAP 333333"
+    },
+    {
+      "materialId": "444444",
+      "deviceId": "demo_austrian_steering_rack",
+      "categoryId": "austrian",
+      "name": "DEMO Рейки SAP 444444"
+    },
+    {
+      "materialId": "555555",
+      "deviceId": "demo_austrian_1",
+      "categoryId": "austrian",
+      "name": "DEMO Австрийско 1 SAP 555555"
+    },
+    {
+      "materialId": "666666",
+      "deviceId": "demo_austrian_2",
+      "categoryId": "austrian",
+      "name": "DEMO Австрийско 2 SAP 666666"
+    },
+    {
+      "materialId": "777777",
+      "deviceId": "demo_austrian_3",
+      "categoryId": "austrian",
+      "name": "DEMO Австрийско 3 SAP 777777"
     }
   ]
 }
